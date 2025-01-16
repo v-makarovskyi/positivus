@@ -1,0 +1,24 @@
+@use '../utils/' as u;
+
+.burger-button {
+   @include u.reset-button;
+    @include u.square(48);
+
+    position: relative;
+    border-radius: var(--border-radius-small);
+
+    @include u.hover {
+        background-color: var(--common-accent);
+}
+
+    &::after {
+        @include u.abs-center;
+        
+        content: '';
+        width: 50%;
+        height: 2px;
+        background-color: var(--common-dark);
+        border-radius: 5px;
+        box-shadow: 0 -8px, 0 8px;
+    } 
+}

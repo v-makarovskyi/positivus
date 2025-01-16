@@ -1,0 +1,33 @@
+@use '../utils/' as u;
+
+.cross-button {
+    @include u.reset-button;
+    @include u.square(48);
+  
+    position: relative;
+    border-radius: var(--border-radius-small);
+  
+    @include u.hover {
+      background-color: var(--common-accent);
+    }
+  
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 7px;
+      width: 70%;
+      height: 2px;
+      background-color: var(--common-dark);
+      border-radius: 5px;
+    }
+  
+    &::before {
+      rotate: 45deg;
+    }
+  
+    &::after {
+      rotate: -45deg;
+    }
+  }

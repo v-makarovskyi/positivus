@@ -1,0 +1,31 @@
+@use "colors" as clr;
+@use "variables" as v;
+@use "breakpoints" as bp;
+
+:root {
+  @each $color, $shades in clr.$colors {
+    @each $shade, $value in $shades {
+      --#{$color}-#{$shade}: #{$value};
+    }
+  }
+  --border: 1px solid var(--common-dark);
+  --border-radius: #{v.$border-radius};
+  --border-radius-small: #{v.$border-radius-small};
+  --border-radius-large: #{v.$border-radius-large};
+  --shadow: 0 5px 0 0 var(--common-dark);
+  --font-family-base: #{v.$font-family-base};
+  --container-width: #{v.$container-width};
+  --container-padding-x: #{v.$container-padding-x};
+  --section-padding-y: #{v.$section-padding-y};
+  --input-height: #{v.$input-height};
+  --button-height: #{v.$button-height};
+  --transition-duration: #{v.$transition-duration};
+
+  @include bp.desktop {
+    --section-padding-y: 50px;
+  }
+
+  @include bp.mobile {
+    --section-padding-y: 30px;
+  }
+}

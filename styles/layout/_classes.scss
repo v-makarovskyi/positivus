@@ -1,0 +1,23 @@
+@use '../utils/' as v;
+
+.container {
+    max-width: calc(v.$container-width + v.$container-padding-x * 2);
+    padding-inline: calc(v.$container-padding-x);
+    margin-inline: auto;
+}
+
+.visually-hidden {
+    @include v.visually-hidden;
+}
+
+.hidden-mobile {
+    @include v.mobile {
+        display: none !important;
+    }
+}
+
+.visible-mobile {
+    @include v.mobile-above {
+        display: none !important;
+    }
+}

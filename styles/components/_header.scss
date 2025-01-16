@@ -1,0 +1,89 @@
+@use '../utils/' as u;
+
+.header {
+  padding-top: 60px;
+
+  @include u.desktop {
+    padding-top: 30px;
+  }
+
+  @include u.mobile {
+    padding-top: 15px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 40px;
+
+    @include u.tablet {
+      column-gap: 30px;
+    }
+  }
+
+  &__logo {
+    @include u.tablet {
+      max-width: 120px;
+    }
+  }
+
+  &__menu {
+    font-size: 20px;
+    margin-left: auto;
+
+    @include u.desktop {
+      font-size: 18px;
+    }
+
+    @include u.tablet {
+      font-size: 16px;
+    }
+  }
+
+  &__menu-list {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+
+    @include u.desktop {
+      column-gap: 20px;
+    }
+  }
+
+  &__menu-link {
+    height: 48px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--color-accent);
+      transition: var(--transition-duration);
+    }
+  }
+
+  &__button {
+    @include u.desktop {
+      padding-inline: 28px;
+    }
+
+    @include u.tablet {
+      padding-inline: 18px;
+      height: 50px;
+      font-size: 16px;
+    }
+  }
+}
+
