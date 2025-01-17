@@ -1,3 +1,5 @@
+@use '../utils/' as u;
+
 .section {
     padding-block: var(--section-padding-y);
 
@@ -12,6 +14,16 @@
 
         &:not(:last-child) {
             margin-bottom: 80px;
+
+            @include u.mobile {
+                margin-bottom: 40px;
+            }
+        }
+
+        @include u.mobile {
+            flex-direction: column;
+            row-gap: 30px;
+            text-align: center;
         }
     }
 
