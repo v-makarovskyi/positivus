@@ -1,24 +1,22 @@
-@use '../utils/' as u;
+@use "../utils/" as u;
 
 .button {
-    @include u.flex-center(true);
-    height: var(--button-height);
-    padding-inline: 35px;
-    font-size: 20px;
-    color: var(--common-light);
-    background-color: var(--common-dark);
-    border: var(--border);
-    border-radius: var(--border-radius);
+  @include u.flex-center(true);
+  height: var(--button-height);
+  padding-inline: 35px;
+  font-size: 20px;
+  color: var(--common-light);
+  background-color: var(--common-dark);
+  border: var(--border);
+  border-radius: var(--border-radius);
 
-    @include u.hover {
-        &:hover {
-            background-color: var(--common-accent);
-            color: var(--common-dark);
-        }
-    }
+  @include u.hover {
+    background-color: var(--common-accent);
+    color: var(--common-dark);
+  }
 
-    &--transparent {
-        color: var(--common-dark);
-        background-color: transparent;
-    }
+  &--transparent {
+    color: var(--common-dark);
+    background-color: transparent;
+  }
 }
