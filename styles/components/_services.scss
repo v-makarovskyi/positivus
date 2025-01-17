@@ -1,7 +1,13 @@
+@use '../utils/' as u;
+
 .services {
     &__list {
         &:not(:last-child) {
             margin-bottom: 100px;
+
+            @include u.mobile {
+                margin-bottom: 70px;
+            }
         }
     }
 }
