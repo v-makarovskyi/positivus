@@ -6,18 +6,6 @@
   margin-inline: auto;
 }
 
-.grid {
-  $-gridColumns: "--gridColumns";
-  display: grid;
-  grid-template-columns: repeat(var(#{$-gridColumns}), 1fr);
-  gap: 40px;
-
-  @for $i from 2 through 12 {
-    &--#{$i} {
-      #{$-gridColumns}: #{$i};
-    }
-  }
-}
 
 .visually-hidden {
   @include v.visually-hidden;
