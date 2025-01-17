@@ -1,0 +1,7 @@
+.services {
+    &__list {
+        &:not(:last-child) {
+            margin-bottom: 100px;
+        }
+    }
+}
