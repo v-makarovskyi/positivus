@@ -1,0 +1,51 @@
+@use "../utils/" as u;
+
+.banner {
+  --bannerImgOffsetY: 24px;
+
+  padding-block: var(--bannerImgOffsetY);
+
+  @include u.tablet {
+    --bannerImgOffsetY: 0;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--common-grey);
+    border-radius: var(--border-radius-large);
+  }
+
+  &__body {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 26px;
+
+    @include u.tablet {
+      padding: 50px;
+    }
+
+    @include u.mobile {
+      align-items: center;
+      row-gap: 20px;
+    }
+  }
+
+  &__description {
+    max-width: 500px;
+    font-size: 18px;
+    line-height: 1.28;
+  }
+
+  &__image {
+    margin-block: calc(var(--bannerImgOffsetY) * -1);
+
+    @include u.tablet {
+      max-width: 40%;
+      height: auto;
+    }
+  }
+}
