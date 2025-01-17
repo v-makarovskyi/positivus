@@ -1,0 +1,24 @@
+@use "../utils/" as u;
+
+.grid {
+  $-gridColumns: "--gridColumns";
+  display: grid;
+  grid-template-columns: repeat(var(#{$-gridColumns}), 1fr);
+  gap: 40px;
+
+  @include u.mobile {
+    gap: 30px;
+  }
+
+  @for $i from 2 through 12 {
+    &--#{$i} {
+      #{$-gridColumns}: #{$i};
+    }
+  }
+
+  &--2 {
+    @include u.tablet {
+      #{$-gridColumns}: 1;
+    }
+  }
+}
