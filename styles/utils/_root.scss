@@ -1,6 +1,21 @@
 @use "colors" as clr;
-@use "variables" as v;
 @use "breakpoints" as bp;
+
+$border-radius: 14px;
+$border-radius-small: 7px;
+$border-radius-large: 45px;
+
+$font-family-base: "Space Grotesk", sans-serif;
+
+$container-width: 1240px;
+$container-padding-x: 20px;
+
+$section-padding-y: 70px;
+
+$input-height: 59px;
+$button-height: 68px;
+
+$transition-duration: 0.2s;
 
 :root {
   @each $color, $shades in clr.$colors {
@@ -9,17 +24,17 @@
     }
   }
   --border: 1px solid var(--common-dark);
-  --border-radius: #{v.$border-radius};
-  --border-radius-small: #{v.$border-radius-small};
-  --border-radius-large: #{v.$border-radius-large};
+  --border-radius: #{$border-radius};
+  --border-radius-small: #{$border-radius-small};
+  --border-radius-large: #{$border-radius-large};
   --shadow: 0 5px 0 0 var(--common-dark);
-  --font-family-base: #{v.$font-family-base};
-  --container-width: #{v.$container-width};
-  --container-padding-x: #{v.$container-padding-x};
-  --section-padding-y: #{v.$section-padding-y};
-  --input-height: #{v.$input-height};
-  --button-height: #{v.$button-height};
-  --transition-duration: #{v.$transition-duration};
+  --font-family-base: #{$font-family-base};
+  --container-width: #{$container-width};
+  --container-padding-x: #{$container-padding-x};
+  --section-padding-y: #{$section-padding-y};
+  --input-height: #{$input-height};
+  --button-height: #{$button-height};
+  --transition-duration: #{$transition-duration};
 
   @include bp.desktop {
     --section-padding-y: 50px;
@@ -29,3 +44,4 @@
     --section-padding-y: 30px;
   }
 }
+
