@@ -69,6 +69,7 @@
     }
 
     &-label {
+      $self: &;
       @include u.mobile {
         @include u.visually-hidden;
       }
