@@ -1,0 +1,69 @@
+@use "../utils/" as u;
+
+.studies {
+  @include u.mobile-above {
+    padding: 40px;
+    background-color: var(--common-dark);
+    color: var(--common-light);
+    border-radius: var(--border-radius-large);
+  }
+
+  @include u.desktop-above {
+    padding: 60px 70px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include u.mobile {
+      width: 100vw;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      column-gap: 20px;
+    }
+  }
+
+  &__item {
+    --studiesItemPaddingX: 64px;
+
+    @include u.desktop {
+      --studiesItemPaddingX: 32px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    @include u.mobile-above {
+      &:not(:first-child) {
+        padding-left: var(--studiesItemPaddingX);
+      }
+
+      &:not(:last-child) {
+        padding-right: var(--studiesItemPaddingX);
+        border-right: 1px solid var(--common-light);
+      }
+    }
+
+    @include u.mobile {
+      padding: 42px 50px;
+      background-color: var(--common-dark);
+      color: var(--common-light);
+      border-radius: var(--border-radius-large);
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 15px;
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--common-accent);
+
+    @include u.hover {
+      opacity: 0.7;
+    }
+  }
+}
