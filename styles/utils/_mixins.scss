@@ -1,52 +1,65 @@
-@mixin fluid-text($max:48, $min:16) {
-    font-size: clamp(#{$min}px, #{$max / 1440 * 100}vw, #{$max}px);
+@use "sass:meta";
+@use "sass:color";
+
+@function second-argument-clamp($num, $maxWidth) {
+  $result: ($num / $maxWidth * 100);
+  @return #{$result}vw;
+}
+
+@mixin fluid-text($max: 48, $min: 16) {
+  font-size: clamp(#{$min}px, second-argument-clamp($max, 1440), #{$max}px);
 }
 
 @mixin restt-link {
-    color: inherit;
-    &,
-    &:hover {
-        text-decoration: none;
-    }
-} 
+  color: inherit;
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 @mixin reset-button {
-    padding: 0;
-    background-color: transparent;
-    border: none;
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
 
 @mixin square($size) {
-    width: #{$size}px;
-    aspect-ratio: 1;
+  width: #{$size}px;
+  aspect-ratio: 1;
 }
 
 @mixin abs-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @mixin flex-center($isInline) {
-    @if($isInline) {
-        display: inline-flex;
-    } @else {
-        display: flex;
-    }
-    align-items: center;
-    justify-content: center;
+  @if $isInline != true and $isInline != false {
+    @error "Argument #{$isInline} must be either true or false.";
+  }
+  @if ($isInline) {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin visually-hidden {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    white-space: nowrap !important;
-    clip-path: inset(100%) !important;
-    clip: rect(0 0 0 0) !important;
-    overflow: hidden !important;
-  }
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+
