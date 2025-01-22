@@ -1,0 +1,16 @@
+@use '../utils/' as u;
+
+.team {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+
+    &__button {
+        align-self: flex-end;
+        min-width: 269px;
+
+        @include u.mobile-s {
+            width: 100%;
+        }
+    }
+}
