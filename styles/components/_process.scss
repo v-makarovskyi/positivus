@@ -1,0 +1,120 @@
+@use "../utils/" as u;
+
+.process {
+  $self: &;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    counter-reset: my-counter;
+    list-style: none;
+
+    @include u.mobile {
+      row-gap: 20px;
+    }
+  }
+
+  &__item {
+    --counterContent: counter(my-counter);
+
+    counter-increment: my-counter;
+
+    &:nth-child(-n + 9) {
+      --counterContent: "0" counter(my-counter);
+    }
+  }
+
+  &__accordion {
+    --indicatorVerticalRotate: 90deg;
+
+    padding: 40px 60px;
+    background-color: var(--common-grey);
+    border: var(--border);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow);
+    transition-duration: var(--transition-duration);
+
+    &[open] {
+      --indicatorVerticalRotate: 0deg;
+
+      background-color: var(--common-accent);
+    }
+
+    @include u.hover {
+      background-color: var(--common-accent);
+    }
+
+    @include u.mobile {
+      padding: 30px;
+    }
+
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 50px;
+      cursor: pointer;
+      user-select: none;
+
+      @include u.mobile {
+        column-gap: 28px;
+      }
+    }
+
+    &-title {
+      @include u.fluid-text(30, 18);
+
+      display: flex;
+      align-items: center;
+      column-gap: 25px;
+
+      @include u.mobile {
+        column-gap: 33px;
+      }
+
+      &::before {
+        content: var(--counterContent);
+        font-size: 2em;
+
+        @include u.mobile {
+          font-size: 30px;
+        }
+      }
+    }
+
+    &-indicator {
+      @include u.flex-center($isInline: false);
+      @include u.square(58);
+
+      flex-shrink: 0;
+      position: relative;
+      background-color: var(--common-grey);
+      border: var(--border);
+      border-radius: 50%;
+
+      @include u.mobile {
+        width: 30px;
+      }
+
+      &::before,
+      &::after {
+        @include u.abs-center;
+        content: "";
+        width: 45%;
+        height: 10%;
+        background-color: var(--common-dark);
+      }
+      &::after {
+        rotate: var(--indicatorVerticalRotate);
+        transition-duration: var(--transition-duration);
+      }
+    }
+
+    &-body {
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: var(--border);
+    }
+  }
+}
