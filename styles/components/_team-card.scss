@@ -1,0 +1,62 @@
+@use "../utils/" as u;
+
+.team-card {
+  height: 100%;
+  padding: 40px 35px;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius-large);
+
+  @include u.mobile {
+    padding-inline: 50px;
+  }
+
+  &__header {
+    display: flex;
+  }
+
+  &__image:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &__info {
+    align-self: flex-end;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__link {
+    @include u.flex-center($isInline: false);
+    @include u.square(34);
+
+    flex-shrink: 0;
+    margin-left: auto;
+    align-self: start;
+    background-color: var(--common-dark);
+    color: var(--common-accent);
+    border-radius: 50%;
+  }
+
+  &__name {
+    &:not(:last-child) {
+      margin-bottom: 3px;
+    }
+  }
+
+  &__body {
+    --teamBodyMarginTop: 28px;
+
+    padding-top: var(--teamBodyMarginTop);
+    margin-top: var(--teamBodyMarginTop);
+    border-top: var(--border);
+
+    @include u.mobile {
+        --teamBodyMarginTop: 20px;
+
+        padding-top: var(--teamBodyMarginTop);
+        margin-top: var(--teamBodyMarginTop);
+        font-size: 16px;
+    }
+  }
+}
