@@ -1,0 +1,40 @@
+@use "../utils/" as u;
+
+.radio {
+  $self: &;
+
+  @include u.hover {
+    opacity: 0.6;
+  }
+
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+  transition-duration: var(--transition-duration);
+
+  &__emulator {
+    @include u.flex-center($isInline: true);
+    @include u.square(28px);
+
+    position: relative;
+    border-radius: 50%;
+    border: var(--border);
+
+    &::after {
+      content: "";
+      display: inline-block;
+      background-color: var(--common-accent);
+
+      @include u.square(16px);
+      @include u.abs-center;
+
+      border-radius: 50%;
+
+      @at-root #{$self}__input:not(:checked) + & {
+        opacity: 0;
+      }
+
+      transition-duration: var(--transition-duration);
+    }
+  }
+}
