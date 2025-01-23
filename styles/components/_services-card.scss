@@ -58,7 +58,7 @@
 
     &-icon-wrapper {
       @include u.flex-center(false);
-      @include u.square(41);
+      @include u.square(41px);
 
       background-color: currentColor;
       border-radius: 50%;
