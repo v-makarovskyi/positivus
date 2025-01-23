@@ -28,7 +28,7 @@
 
   &__link {
     @include u.flex-center($isInline: false);
-    @include u.square(34);
+    @include u.square(34px);
 
     flex-shrink: 0;
     margin-left: auto;
