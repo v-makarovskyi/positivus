@@ -2,7 +2,7 @@
 
 .burger-button {
    @include u.reset-button;
-    @include u.square(48);
+    @include u.square(48px);
 
     position: relative;
     border-radius: var(--border-radius-small);
