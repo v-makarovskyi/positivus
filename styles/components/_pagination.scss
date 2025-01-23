@@ -1,0 +1,23 @@
+@use "../utils/" as u;
+
+.pagination {
+  &__list {
+    display: flex;
+  }
+
+  &__button {
+    @include u.reset-button;
+    @include u.flex-center($isInline: true);
+    @include u.square(24px);
+
+    color: var(--common-light);
+
+    @include u.hover {
+        color: var(--common-accent);
+    }
+    
+    @at-root .is-current {
+        color: var(--common-accent);
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@use "../utils/" as u;
+
+.reviews-card {
+  --reviewCardCornerWidth: 40px;
+  --reviewCardCornerOffsetLeft: 52px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
+
+  @include u.mobile {
+    --reviewCardCornerWidth: 30px;
+    --reviewCardCornerOffsetLeft: 46px;
+
+    row-gap: 44px;
+  }
+
+  &__body {
+    position: relative;
+    padding: 48px var(--reviewCardCornerOffsetLeft) 52px;
+    border: 1px solid var(--common-accent);
+    border-radius: var(--border-radius-large);
+
+    @include u.mobile {
+      padding: 30px;
+    }
+
+    &::after {
+      content: "";
+      @include u.square(var(--reviewCardCornerWidth));
+
+      position: absolute;
+      top: 100%;
+      left: var(--reviewCardCornerOffsetLeft);
+      translate: 0 -52%;
+
+      display: inline-block;
+      border: inherit;
+      background-color: var(--common-dark);
+      rotate: 0.13turn;
+      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    }
+  }
+
+  &__footer {
+    $reviewsFooterNameAndCompanyStyle: normal;
+
+    padding-left: calc(
+      var(--reviewCardCornerOffsetLeft) + var(--reviewCardCornerWidth) / 2
+    );
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      font-style: $reviewsFooterNameAndCompanyStyle;
+    }
+  }
+
+  &__name {
+    color: var(--common-accent);
+  }
+}
