@@ -85,7 +85,7 @@
 
     &-indicator {
       @include u.flex-center($isInline: false);
-      @include u.square(58);
+      @include u.square(58px);
 
       flex-shrink: 0;
       position: relative;
