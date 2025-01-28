@@ -1,0 +1,71 @@
+@use "../utils/" as u;
+
+.contact-us {
+  position: relative;
+
+  overflow-x: hidden;
+
+  @include u.mobile-above {
+    padding: 60px 100px 80px;
+    background-color: var(--common-grey);
+    border-radius: var(--border-radius-large);
+  }
+
+  &::after {
+    --contactUsImageOffsetY: 62px;
+
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    translate: -50% -50%;
+    height: calc(100% - var(--contactUsImageOffsetY) * 2);
+    aspect-ratio: 1;
+    background: url("../../images/contact-us-bg.svg") center/contain no-repeat;
+
+    @include u.tablet {
+      display: none;
+    }
+  }
+
+  &__form,
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__request-types,
+  &__body {
+    @include u.mobile {
+      background-color: var(--common-grey);
+    }
+  }
+
+  &__request-types {
+    @include u.mobile {
+      padding: 40px 52px 36px;
+      border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+    }
+  }
+
+  &__form {
+    @include u.mobile-above {
+      row-gap: 40px;
+    }
+
+    @include u.tablet-above {
+      max-width: 556px;
+    }
+  }
+
+  &__body {
+    row-gap: 25px;
+
+    @include u.mobile {
+      row-gap: 20px;
+      margin-bottom: 30px;
+      padding: 10px 30px 50px;
+      border: 0 0 var(--border-radius-large) var(--border-radius-large);
+    }
+  }
+}
