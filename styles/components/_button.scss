@@ -19,4 +19,9 @@
     color: var(--common-dark);
     background-color: transparent;
   }
+
+  &--accent {
+    color: var(--common-dark);
+    background-color: var(--common-accent);
+  }
 }
