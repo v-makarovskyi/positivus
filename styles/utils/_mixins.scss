@@ -1,8 +1,7 @@
-@use "sass:meta";
-@use "sass:color";
+@use "sass:math";
 
 @function second-argument-clamp($num, $maxWidth) {
-  $result: ($num / $maxWidth * 100);
+  $result: math.div($num, $maxWidth) * 100;
   @return #{$result}vw;
 }
 
