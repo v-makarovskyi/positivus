@@ -273,19 +273,19 @@ h4 {
   font-weight: 500;
 }
 
-h1 {
+h1, .h1 {
   font-size: clamp(43px, 4.1666666667vw, 60px);
 }
 
-h2 {
+h2, .h2 {
   font-size: clamp(36px, 2.7777777778vw, 40px);
 }
 
-h3 {
+h3, .h3 {
   font-size: clamp(26px, 2.0833333333vw, 30px);
 }
 
-h4 {
+h4, .h4 {
   font-size: clamp(18px, 1.3888888889vw, 20px);
 }
 
@@ -349,12 +349,47 @@ h4 {
   color: var(--common-dark);
   background-color: transparent;
 }
+.button--accent {
+  color: var(--common-dark);
+  background-color: var(--common-accent);
+}
+@media (hover: hover) {
+  .button--accent:hover {
+    background-color: var(--common-light);
+    color: var(--common-dark);
+  }
+}
+@media (hover: none) {
+  .button--accent:active {
+    background-color: var(--common-light);
+    color: var(--common-dark);
+  }
+}
 
 .field {
+  --fieldInputHeight: var(--input-height);
+  --fieldInputTextColor: var(--common-dark);
+  --fieldInputBgColor: var(--common-light);
+  --fieldInputBorderColor: var(--common-dark);
+  --fieldInputPlaceholderColor: var(--alt-grey);
+  --fieldInputHoverBgColor: var(--common-accent);
   display: flex;
   flex-direction: column;
   align-items: start;
   row-gap: 5px;
+}
+.field--big-height {
+  --fieldInputHeight: var(--button-height);
+}
+.field--dark-bg {
+  --fieldInputTextColor: var(--common-accent);
+  --fieldInputBgColor: var(--alt-dark);
+  --fieldInputBorderColor: var(--common-light);
+  --fieldInputPlaceholderColor: var(--common-light);
+  --fieldInputHoverBgColor: var(--common-dark);
+}
+.field--dark-bg [id|=subscribe]:focus {
+  background-color: var(--fieldInputBgColor);
 }
 @media (max-width: 767px) {
   .field {
@@ -366,19 +401,21 @@ h4 {
 }
 .field__input {
   width: 100%;
-  height: var(--input-height);
+  height: var(--fieldInputHeight);
+  color: var(--fieldInputTextColor);
+  background-color: var(--fieldInputBgColor);
   padding-inline: 30px;
-  border: var(--border);
+  border: 1px solid var(--fieldInputBorderColor);
   border-radius: var(--border-radius);
 }
 @media (hover: hover) {
   .field__input:hover {
-    background-color: var(--common-accent);
+    background-color: var(--fieldInputHoverBgColor);
   }
 }
 @media (hover: none) {
   .field__input:active {
-    background-color: var(--common-accent);
+    background-color: var(--fieldInputHoverBgColor);
   }
 }
 @media (max-width: 767px) {
@@ -392,10 +429,10 @@ h4 {
   outline: none;
 }
 .field__input::-moz-placeholder {
-  color: var(--alt-grey);
+  color: var(--fieldInputPlaceholderColor);
 }
 .field__input::placeholder {
-  color: var(--alt-grey);
+  color: var(--fieldInputPlaceholderColor);
 }
 .field__input--textarea {
   height: 190px;
@@ -524,6 +561,37 @@ h4 {
 }
 .cross-button::after {
   rotate: -45deg;
+}
+
+.social__list {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  aspect-ratio: 1;
+  color: var(--common-dark);
+  background-color: var(--common-light);
+  border-radius: 50%;
+}
+@media (hover: hover) {
+  .social__link:hover {
+    background-color: var(--common-accent);
+  }
+}
+@media (hover: none) {
+  .social__link:active {
+    background-color: var(--common-accent);
+  }
+}
+.social__link svg {
+  width: 50%;
+  height: 50%;
 }
 
 .header {
@@ -1509,4 +1577,92 @@ h4 {
     padding: 10px 30px 50px;
     border: 0 0 var(--border-radius-large) var(--border-radius-large);
   }
+}
+
+.footer__inner {
+  padding: 55px 60px 50px;
+  color: var(--common-light);
+  background-color: var(--common-dark);
+  border-top-left-radius: var(--border-radius-large);
+  border-top-right-radius: var(--border-radius-large);
+}
+.footer__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+.footer__navigation:not(:last-child) {
+  margin-bottom: 66px;
+}
+.footer__menu-list {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+.footer__menu-link {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  text-decoration: underline;
+}
+@media (hover: hover) {
+  .footer__menu-link:hover {
+    color: var(--common-accent);
+  }
+}
+@media (hover: none) {
+  .footer__menu-link:active {
+    color: var(--common-accent);
+  }
+}
+.footer__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+.footer__body:not(:last-child) {
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid currentColor;
+}
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 27px;
+}
+.footer__contacts-title {
+  color: var(--common-dark);
+}
+.footer__contacts-body {
+  font-style: normal;
+}
+.footer__contacts-body p {
+  --paragraphMarginBottom: 20px;
+}
+@media (hover: hover) {
+  .footer__contacts-body a:hover {
+    color: var(--common-accent);
+  }
+}
+@media (hover: none) {
+  .footer__contacts-body a:active {
+    color: var(--common-accent);
+  }
+}
+
+.subscribe-form {
+  width: 100%;
+  max-width: 634px;
+  padding: 58px 40px;
+  background-color: var(--alt-dark);
+  border-radius: var(--border-radius);
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }/*# sourceMappingURL=styles.css.map */
