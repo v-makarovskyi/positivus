@@ -1,0 +1,27 @@
+@use '../utils/' as u;
+
+.social {
+    &__list {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+    }
+
+    &__link {
+        @include u.flex-center($isInline: true);
+        @include u.square(30px);
+
+        color: var(--common-dark);
+        background-color: var(--common-light);
+        border-radius: 50%;
+
+        @include u.hover {
+            background-color: var(--common-accent);
+        }
+
+        svg {
+            width: 50%;
+            height: 50%;;
+        }
+    }
+}
