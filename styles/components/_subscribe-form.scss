@@ -1,9 +1,18 @@
+@use '../utils/' as u;
+
 .subscribe-form {
-    width: 100%;
-    max-width: 634px;
     padding: 58px 40px;
     background-color: var(--alt-dark);
     border-radius: var(--border-radius);
     display: flex;
     column-gap: 20px;
+
+    @include u.desktop {
+        width: 100%;
+        max-width: 450px;
+        padding: 30px;
+        flex-direction: column;
+        row-gap: 22px;
+    }
+
 }
