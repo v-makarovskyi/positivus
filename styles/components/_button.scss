@@ -23,5 +23,10 @@
   &--accent {
     color: var(--common-dark);
     background-color: var(--common-accent);
+
+    @include u.hover {
+      background-color: var(--common-light);
+      color: var(--common-dark);
+    }
   }
 }
