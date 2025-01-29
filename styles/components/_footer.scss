@@ -1,0 +1,79 @@
+@use "../utils/" as u;
+
+.footer {
+  &__inner {
+    padding: 55px 60px 50px;
+    color: var(--common-light);
+    background-color: var(--common-dark);
+    border-top-left-radius: var(--border-radius-large);
+    border-top-right-radius: var(--border-radius-large);
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 30px;
+
+    &:not(:last-child) {
+      margin-bottom: 66px;
+    }
+  }
+
+  &__menu {
+    &-list {
+      display: flex;
+      align-items: center;
+      column-gap: 40px;
+    }
+
+    &-link {
+      display: inline-flex;
+      align-items: center;
+      height: 30px;
+      text-decoration: underline;
+
+      @include u.hover {
+        color: var(--common-accent);
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+
+    &:not(:last-child) {
+      padding-bottom: 50px;
+      margin-bottom: 50px;
+      border-bottom: 1px solid currentColor;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 27px;
+
+    &-title {
+        color: var(--common-dark);
+    }
+
+    &-body {
+        font-style: normal;
+
+        p {
+            --paragraphMarginBottom: 20px;
+        }
+
+        a {
+            @include u.hover {
+                color: var(--common-accent);
+            }
+        }
+    }
+  }
+}
